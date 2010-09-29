@@ -1,82 +1,46 @@
 <?php
 
 /**
- * Implementation of hook_content_default_fields().
- */
-function os_blog_content_default_fields() {
-  module_load_include('inc', 'os_blog', 'os_blog.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_os_blog_content_default_fields', $args);
-}
-
-/**
- * Implementation of hook_context_default_contexts().
- */
-function os_blog_context_default_contexts() {
-  module_load_include('inc', 'os_blog', 'os_blog.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_os_blog_context_default_contexts', $args);
-}
-
-/**
  * Implementation of hook_ctools_plugin_api().
  */
 function os_blog_ctools_plugin_api() {
-  module_load_include('inc', 'os_blog', 'os_blog.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_os_blog_ctools_plugin_api', $args);
-}
-
-/**
- * Implementation of hook_imagecache_default_presets().
- */
-function os_blog_imagecache_default_presets() {
-  module_load_include('inc', 'os_blog', 'os_blog.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_os_blog_imagecache_default_presets', $args);
+  list($module, $api) = func_get_args();
+  if ($module == "context" && $api == "context") {
+    return array("version" => 3);
+  }
+  elseif ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => 1);
+  }
+  elseif ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => 1);
+  }
 }
 
 /**
  * Implementation of hook_node_info().
  */
 function os_blog_node_info() {
-  module_load_include('inc', 'os_blog', 'os_blog.features.node');
-  $args = func_get_args();
-  return call_user_func_array('_os_blog_node_info', $args);
+  $items = array(
+    'blog' => array(
+      'name' => t('Blog post'),
+      'module' => 'features',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'has_body' => '1',
+      'body_label' => t('Body'),
+      'min_word_count' => '0',
+      'help' => '',
+    ),
+  );
+  return $items;
 }
 
 /**
- * Implementation of hook_default_page_manager_pages().
+ * Implementation of hook_views_api().
  */
-function os_blog_default_page_manager_pages() {
-  module_load_include('inc', 'os_blog', 'os_blog.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_os_blog_default_page_manager_pages', $args);
-}
-
-/**
- * Implementation of hook_user_default_permissions().
- */
-function os_blog_user_default_permissions() {
-  module_load_include('inc', 'os_blog', 'os_blog.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_os_blog_user_default_permissions', $args);
-}
-
-/**
- * Implementation of hook_strongarm().
- */
-function os_blog_strongarm() {
-  module_load_include('inc', 'os_blog', 'os_blog.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_os_blog_strongarm', $args);
-}
-
-/**
- * Implementation of hook_views_default_views().
- */
-function os_blog_views_default_views() {
-  module_load_include('inc', 'os_blog', 'os_blog.features.views');
-  $args = func_get_args();
-  return call_user_func_array('_os_blog_views_default_views', $args);
+function os_blog_views_api() {
+  return array(
+    'api' => '2',
+  );
 }
