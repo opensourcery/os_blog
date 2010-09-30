@@ -17,6 +17,29 @@ function os_blog_ctools_plugin_api() {
 }
 
 /**
+ * Implementation of hook_imagecache_default_presets().
+ */
+function os_blog_imagecache_default_presets() {
+  $items = array(
+    'blog-list' => array(
+      'presetname' => 'blog-list',
+      'actions' => array(
+        '0' => array(
+          'weight' => '0',
+          'module' => 'imagecache',
+          'action' => 'imagecache_scale_and_crop',
+          'data' => array(
+            'width' => '220',
+            'height' => '220',
+          ),
+        ),
+      ),
+    ),
+  );
+  return $items;
+}
+
+/**
  * Implementation of hook_node_info().
  */
 function os_blog_node_info() {
