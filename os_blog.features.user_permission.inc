@@ -28,6 +28,16 @@ function os_blog_user_default_permissions() {
     'roles' => array(),
   );
 
+  // Exported permission: delete terms in 1
+  $permissions['delete terms in 1'] = array(
+    'name' => 'delete terms in 1',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'blog administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: edit any blog content
   $permissions['edit any blog content'] = array(
     'name' => 'edit any blog content',
@@ -38,6 +48,16 @@ function os_blog_user_default_permissions() {
   $permissions['edit own blog content'] = array(
     'name' => 'edit own blog content',
     'roles' => array(),
+  );
+
+  // Exported permission: edit terms in 1
+  $permissions['edit terms in 1'] = array(
+    'name' => 'edit terms in 1',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'blog administrator',
+    ),
+    'module' => 'taxonomy',
   );
 
   return $permissions;
