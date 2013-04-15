@@ -5,10 +5,10 @@
  */
 
 /**
- * Implementation of hook_default_page_manager_pages().
+ * Implements hook_default_page_manager_pages().
  */
 function os_blog_default_page_manager_pages() {
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'add_blog_page';
@@ -46,7 +46,7 @@ function os_blog_default_page_manager_pages() {
     'admin_paths' => TRUE,
   );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'page_add_blog_page_menu_context';
@@ -68,7 +68,7 @@ function os_blog_default_page_manager_pages() {
   $page->default_handlers[$handler->name] = $handler;
   $pages['add_blog_page'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'blog_add_tag';
@@ -116,7 +116,7 @@ function os_blog_default_page_manager_pages() {
     'admin_paths' => TRUE,
   );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'page_blog_add_tag_menu_context';
@@ -138,7 +138,7 @@ function os_blog_default_page_manager_pages() {
   $page->default_handlers[$handler->name] = $handler;
   $pages['blog_add_tag'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'blog_administration';
@@ -176,7 +176,7 @@ function os_blog_default_page_manager_pages() {
     'admin_paths' => TRUE,
   );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'page_blog_administration_menu_context';
@@ -209,7 +209,7 @@ function os_blog_default_page_manager_pages() {
   $page->default_handlers[$handler->name] = $handler;
   $pages['blog_administration'] = $page;
 
-  $page = new stdClass;
+  $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'blog_tag_administration';
@@ -257,7 +257,7 @@ function os_blog_default_page_manager_pages() {
     'admin_paths' => TRUE,
   );
   $page->default_handlers = array();
-  $handler = new stdClass;
+  $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
   $handler->name = 'page_blog_tag_administration_menu_context';
@@ -279,6 +279,6 @@ function os_blog_default_page_manager_pages() {
   $page->default_handlers[$handler->name] = $handler;
   $pages['blog_tag_administration'] = $page;
 
- return $pages;
+  return $pages;
 
 }

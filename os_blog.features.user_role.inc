@@ -5,15 +5,15 @@
  */
 
 /**
- * Implementation of hook_user_default_roles().
+ * Implements hook_user_default_roles().
  */
 function os_blog_user_default_roles() {
   $roles = array();
 
-  // Exported role: blog administrator
+  // Exported role: blog administrator.
   $roles['blog administrator'] = array(
     'name' => 'blog administrator',
-    'weight' => '3',
+    'weight' => 3,
   );
 
   return $roles;
