@@ -1,45 +1,62 @@
 <?php
+/**
+ * @file
+ * os_blog.features.user_permission.inc
+ */
 
 /**
- * Implementation of hook_user_default_permissions().
+ * Implements hook_user_default_permissions().
  */
 function os_blog_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: access comments
-  $permissions['access comments'] = array(
-    'name' => 'access comments',
-    'roles' => array(
-      '0' => 'anonymous user',
-      '1' => 'authenticated user',
-    ),
+  // Exported permission: create blog_post content.
+  $permissions['create blog_post content'] = array(
+    'name' => 'create blog_post content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
-  // Exported permission: administer comments
-  $permissions['administer comments'] = array(
-    'name' => 'administer comments',
-    'roles' => array(
-      '0' => 'administrator',
-      '1' => 'site editor',
-    ),
+  // Exported permission: delete any blog_post content.
+  $permissions['delete any blog_post content'] = array(
+    'name' => 'delete any blog_post content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
-  // Exported permission: post comments
-  $permissions['post comments'] = array(
-    'name' => 'post comments',
-    'roles' => array(
-      '0' => 'anonymous user',
-      '1' => 'authenticated user',
-    ),
+  // Exported permission: delete own blog_post content.
+  $permissions['delete own blog_post content'] = array(
+    'name' => 'delete own blog_post content',
+    'roles' => array(),
+    'module' => 'node',
   );
 
-  // Exported permission: post comments without approval
-  $permissions['post comments without approval'] = array(
-    'name' => 'post comments without approval',
-    'roles' => array(
-      '0' => 'anonymous user',
-      '1' => 'authenticated user',
-    ),
+  // Exported permission: delete terms in 2.
+  $permissions['delete terms in 2'] = array(
+    'name' => 'delete terms in 2',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: edit any blog_post content.
+  $permissions['edit any blog_post content'] = array(
+    'name' => 'edit any blog_post content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit own blog_post content.
+  $permissions['edit own blog_post content'] = array(
+    'name' => 'edit own blog_post content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit terms in 2.
+  $permissions['edit terms in 2'] = array(
+    'name' => 'edit terms in 2',
+    'roles' => array(),
+    'module' => 'taxonomy',
   );
 
   return $permissions;
