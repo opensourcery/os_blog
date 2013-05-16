@@ -96,7 +96,7 @@ function os_blog_views_default_views() {
   );
 
   /* Display: Recent Block */
-  $handler = $view->new_display('block', 'Recent Block', 'blog_recent_teaser_block');
+  $handler = $view->new_display('block', 'Recent Teaser', 'blog_recent_teaser_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent';
   $handler->display->display_options['display_description'] = 'Recent posts in teaser view.';
@@ -106,7 +106,7 @@ function os_blog_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
 
   /* Display: Recent Block */
-  $handler = $view->new_display('block', 'Recent Block', 'blog_recent_field_block');
+  $handler = $view->new_display('block', 'Recent Fields', 'blog_recent_field_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent';
   $handler->display->display_options['display_description'] = 'Recent posts in field view.';
@@ -122,7 +122,7 @@ function os_blog_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
 
   /* Display: Featured Block */
-  $handler = $view->new_display('block', 'Featured Block', 'blog_feature_teaser_block');
+  $handler = $view->new_display('block', 'Featured Teaser', 'blog_feature_teaser_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Featured';
   $handler->display->display_options['display_description'] = 'Featured posts in teaser view.';
@@ -148,7 +148,7 @@ function os_blog_views_default_views() {
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
 
   /* Display: Featured Block */
-  $handler = $view->new_display('block', 'Featured Block', 'blog_feature_field_block');
+  $handler = $view->new_display('block', 'Featured Fields', 'blog_feature_field_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent';
   $handler->display->display_options['display_description'] = 'Featured posts in field view.';
