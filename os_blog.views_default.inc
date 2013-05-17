@@ -95,7 +95,7 @@ function os_blog_views_default_views() {
     'page' => 'page',
   );
 
-  /* Display: Recent Block */
+  /* Display: Recent Teaser */
   $handler = $view->new_display('block', 'Recent Teaser', 'blog_recent_teaser_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent';
@@ -105,7 +105,7 @@ function os_blog_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
 
-  /* Display: Recent Block */
+  /* Display: Recent Fields */
   $handler = $view->new_display('block', 'Recent Fields', 'blog_recent_field_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent';
@@ -121,7 +121,7 @@ function os_blog_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
 
-  /* Display: Featured Block */
+  /* Display: Featured Teaser */
   $handler = $view->new_display('block', 'Featured Teaser', 'blog_feature_teaser_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Featured';
@@ -147,7 +147,7 @@ function os_blog_views_default_views() {
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
 
-  /* Display: Featured Block */
+  /* Display: Featured Fields */
   $handler = $view->new_display('block', 'Featured Fields', 'blog_feature_field_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent';
@@ -178,6 +178,40 @@ function os_blog_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+
+  /* Display: Blog Categories */
+  $handler = $view->new_display('block', 'Blog Categories', 'blog_category_block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Blog Categories';
+  $handler->display->display_options['display_description'] = 'Block of blog category terms';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Blog Category (field_blog_category) */
+  $handler->display->display_options['relationships']['field_blog_category_tid']['id'] = 'field_blog_category_tid';
+  $handler->display->display_options['relationships']['field_blog_category_tid']['table'] = 'field_data_field_blog_category';
+  $handler->display->display_options['relationships']['field_blog_category_tid']['field'] = 'field_blog_category_tid';
+  $handler->display->display_options['relationships']['field_blog_category_tid']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'field_blog_category_tid';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Taxonomy term: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['relationship'] = 'field_blog_category_tid';
   $export['blog'] = $view;
 
   return $export;
