@@ -2,6 +2,7 @@ name = OpenSourcery Blog
 description = Provides blog post content type, blog category taxonomy and related views.
 core = 7.x
 package = OpenSourcery
+php = 5.2.4
 dependencies[] = features
 dependencies[] = node
 dependencies[] = taxonomy
