@@ -73,14 +73,19 @@ function os_blog_views_default_views() {
     'blog_post' => 'blog_post',
   );
 
-  /* Display: Blog Page */
-  $handler = $view->new_display('page', 'Blog Page', 'page');
-  $handler->display->display_options['display_description'] = 'Main blog page.';
+  /* Display: Blog Panel Pane */
+  $handler = $view->new_display('panel_pane', 'Blog Panel Pane', 'page');
+  $handler->display->display_options['display_description'] = 'Main blog pane.';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'blog';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Blog';
-  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['allow']['use_pager'] = 'use_pager';
+  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
 
   /* Display: RSS Feed */
   $handler = $view->new_display('feed', 'RSS Feed', 'feed');
@@ -180,7 +185,7 @@ function os_blog_views_default_views() {
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
 
   /* Display: Blog Categories */
-  $handler = $view->new_display('block', 'Blog Categories', 'blog_category_block');
+  $handler = $view->new_display('panel_pane', 'Blog Categories', 'blog_category_panel_pane');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Blog Categories';
   $handler->display->display_options['display_description'] = 'Block of blog category terms';
@@ -212,19 +217,16 @@ function os_blog_views_default_views() {
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
   $handler->display->display_options['sorts']['weight']['relationship'] = 'field_blog_category_tid';
-
-  /* Display: Teaser list pane */
-  $handler = $view->new_display('panel_pane', 'Teaser list pane', 'panel_pane_1');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['allow']['use_pager'] = 'use_pager';
-  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;
   $handler->display->display_options['allow']['link_to_view'] = 0;
   $handler->display->display_options['allow']['more_link'] = 0;
-  $handler->display->display_options['allow']['path_override'] = 0;
-  $handler->display->display_options['allow']['title_override'] = 0;
-  $handler->display->display_options['allow']['exposed_form'] = 'exposed_form';
+  $handler->display->display_options['allow']['path_override'] = 'path_override';
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
+  $handler->display->display_options['inherit_panels_path'] = '0';
   $export['blog'] = $view;
 
   return $export;
