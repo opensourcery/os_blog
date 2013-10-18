@@ -6,6 +6,7 @@ php = 5.2.4
 dependencies[] = context_admin
 dependencies[] = features
 dependencies[] = page_manager
+dependencies[] = panels
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = views_content
