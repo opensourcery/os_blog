@@ -94,6 +94,7 @@ function os_blog_views_default_views() {
   $handler->display->display_options['allow']['title_override'] = 'title_override';
   $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
+  $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: RSS Feed */
   $handler = $view->new_display('feed', 'RSS Feed', 'feed');
