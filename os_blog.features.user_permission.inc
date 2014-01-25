@@ -31,13 +31,6 @@ function os_blog_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: delete terms in 2.
-  $permissions['delete terms in 2'] = array(
-    'name' => 'delete terms in 2',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
   // Exported permission: edit any blog_post content.
   $permissions['edit any blog_post content'] = array(
     'name' => 'edit any blog_post content',
@@ -50,13 +43,6 @@ function os_blog_user_default_permissions() {
     'name' => 'edit own blog_post content',
     'roles' => array(),
     'module' => 'node',
-  );
-
-  // Exported permission: edit terms in 2.
-  $permissions['edit terms in 2'] = array(
-    'name' => 'edit terms in 2',
-    'roles' => array(),
-    'module' => 'taxonomy',
   );
 
   return $permissions;
